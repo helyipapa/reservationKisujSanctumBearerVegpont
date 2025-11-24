@@ -1,11 +1,11 @@
-# API végpontok (ReservationKisujSanctumBearer)
+## API végpontok (ReservationKisujSanctumBearer)
 
-Általános:
+# Általános:
 - Base URL (lokálisan): http://127.0.0.1/reservationKisujSanctumBearer/public/api
 - Auth: Laravel Sanctum Bearer token szükséges az authentikált végpontokhoz.
 - Hibaválaszok: 401 = Unauthorized, 403 = Forbidden, 422 = Validation error.
 
-1) Regisztráció
+# Regisztráció
 - POST /api/register
 - Body (JSON):
 {
@@ -27,7 +27,7 @@
   }
 }
 
-2) Bejelentkezés
+# Bejelentkezés
 - POST /api/login
 - Body (JSON):
 {
@@ -41,14 +41,14 @@
   "token_type": "Bearer"
 }
 
-3) Kijelentkezés
+# Kijelentkezés
 - POST /api/logout
 - Header: Authorization: Bearer {access_token}
 - Sikeres válasz: 200 OK
 - Példa:
 { "message": "Logged out" }
 
-4) Foglalások listázása
+# Foglalások listázása
 - GET /api/reservations
 - Header: Authorization: Bearer {access_token}
 - Viselkedés:
@@ -68,7 +68,7 @@
   ...
 ]
 
-5) Egy foglalás lekérése
+# Egy foglalás lekérése
 - GET /api/reservations/{id}
 - Header: Authorization: Bearer {access_token}
 - Válaszok:
@@ -76,7 +76,7 @@
   - 403 Forbidden (ha nem jogosult)
   - 404 Not Found (ha nem létezik)
 
-6) Foglalás létrehozása
+# Foglalás létrehozása
 - POST /api/reservations
 - Header: Authorization: Bearer {access_token}
 - Body (JSON):
@@ -97,7 +97,7 @@
   "updated_at": "2025-11-20T09:00:00.000000Z"
 }
 
-7) Foglalás frissítése
+# Foglalás frissítése
 - PUT /api/reservations/{id} vagy PATCH /api/reservations/{id}
 - Header: Authorization: Bearer {access_token}
 - Body (JSON) — lehet részleges:
@@ -107,7 +107,7 @@
 }
 - Válasz: 200 OK + frissített foglalás JSON vagy 403 ha nincs jogosultság.
 
-8) Foglalás törlése
+# Foglalás törlése
 - DELETE /api/reservations/{id}
 - Header: Authorization: Bearer {access_token}
 - Válaszok:
